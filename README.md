@@ -60,16 +60,15 @@ Saathi is an aesthetic, feature-rich, space-themed multipurpose Discord bot desi
 
 ```
 saathi/
-├── bot.py               # Main bot runner
-├── economy.py           # Economy logic and database management
-├── cogs/                # All command modules (organized)
-│   ├── fun.py
-│   ├── economy.py
-│   ├── games.py
-│   └── moderation.py
-├── bad_words.py         # Filter list for chat moderation
-├── .env                 # Store your token securely
-└── requirements.txt     # Python dependencies
+├── main.py               # Main bot runner
+├── economy.py            # Economy logic and database management
+├── explore.py            # Explore and deep-space pet discovery logic
+├── movies.py             # Movie recommendation command
+├── shop_buy_etc.py       # Shop, buy, inventory, and equip logic
+├── badwords.txt          # Word list used for moderation filtering
+├── badwords.py           # Chat moderation using word list
+├── requirements.txt      # Python dependencies
+└── .env                  # Create this before running and store your token
 ```
 
 ---
