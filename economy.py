@@ -3,7 +3,7 @@ import aiosqlite
 
 DB_NAME = "saathi_economy.db"
 
-# Setup the database
+
 async def setup():
     async with aiosqlite.connect(DB_NAME) as db:
         await db.execute("PRAGMA journal_mode=WAL;")
@@ -13,7 +13,7 @@ async def setup():
                 balance INTEGER DEFAULT 0
             )
         """)
-        # Add this to your setup() function in economy.py
+        
         await db.execute("""
             CREATE TABLE IF NOT EXISTS user_pets (
                user_id INTEGER,
@@ -86,7 +86,7 @@ async def get_user_pets(user_id: int) -> list[tuple[str, str]]:
 
 
 
-# Add a user if they don't exist
+
 async def ensure_user(user_id: int):
     async with aiosqlite.connect(DB_NAME) as db:
         await db.execute("""
@@ -94,14 +94,14 @@ async def ensure_user(user_id: int):
         """, (user_id,))
         await db.commit()
 
-# Get user's current balance
+
 async def get_balance(user_id: int) -> int:
     async with aiosqlite.connect(DB_NAME) as db:
         async with db.execute("SELECT balance FROM users WHERE user_id = ?", (user_id,)) as cursor:
             result = await cursor.fetchone()
             return result[0] if result else 0
 
-# Add stardust
+
 async def add_balance(user_id: int, amount: int):
     await ensure_user(user_id)
     async with aiosqlite.connect(DB_NAME) as db:
@@ -110,7 +110,7 @@ async def add_balance(user_id: int, amount: int):
         """, (amount, user_id))
         await db.commit()
 
-# Remove stardust
+
 async def remove_balance(user_id: int, amount: int):
     await ensure_user(user_id)
     async with aiosqlite.connect(DB_NAME) as db:
@@ -119,7 +119,6 @@ async def remove_balance(user_id: int, amount: int):
         """, (amount, user_id))
         await db.commit()
 
-# Transfer stardust between users
 async def transfer_balance(from_id: int, to_id: int, amount: int) -> bool:
     if amount <= 0:
         return False
