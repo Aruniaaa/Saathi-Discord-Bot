@@ -17,7 +17,7 @@ from datetime import datetime, timedelta
 import economy
 
 
-# ₊˚ ‿︵‿︵‿︵୨୧ · · ♡ · · ୨୧‿︵‿︵‿︵ ˚₊
+
 
 
 load_dotenv()
@@ -39,7 +39,6 @@ async def on_ready():
         print(f"Error syncing commands: {e}")
 
 
-#₊˚ ‿︵‿︵‿︵୨୧ · · ♡ · · ୨୧‿︵‿︵‿︵ ˚₊
 
 
 @bot.event
@@ -53,7 +52,7 @@ async def on_member_join(member):
         print(f"Could not send a welcome message to {member.name}. They might have DMs disabled.")
 
 
-# ₊˚ ‿︵‿︵‿︵୨୧ · · ♡ · · ୨୧‿︵‿︵‿︵ ˚₊
+
 
 
 @bot.event
@@ -106,7 +105,7 @@ async def on_member_remove(member):
         await channel.send(f"{member.name} has left the server.")
     await member.send(f"We are sad to see you go, {member.name} Hope you enjoyed your stay 👋")
 
-# ₊˚ ‿︵‿︵‿︵୨୧ · · ♡ · · ୨୧‿︵‿︵‿︵ ˚₊
+
 
 @bot.event
 async def on_command_error(ctx, error):
@@ -127,18 +126,17 @@ async def on_command_error(ctx, error):
             logging.error(f"Error in command {ctx.command}: {error}")
 
 
-# ₊˚ ‿︵‿︵‿︵୨୧ · · ♡ · · ୨୧‿︵‿︵‿︵ ˚₊
 
 
 @tree.command(name="help", description="Don't know how to use Saathi? This command will help! 💫")
 async def help(interaction: discord.Interaction):
     embed = discord.Embed(
         title="📖 Saathi Command Guide",
-        description="Here's everything you can do with your cosmic buddy! 🌌\nUse `/command_name` to activate each one.",
+        description="Here's everything you can do with Saathi! \nUse `/command_name` to activate each one.",
         color= 0xB39EB5
     )
 
-    # 🌟 Social & Fun Commands
+ 
     embed.add_field(name="🧩 General & Games", value="""
 `/hello` - Say hello to Saathi 👋  
 `/rps` - Play rock, paper, scissors with the bot 🪨📃✂️  
@@ -152,7 +150,7 @@ async def help(interaction: discord.Interaction):
 `/movierecc` - Get 3 movie recs 🍿  
 """, inline=False)
 
-    # 💰 Economy Commands
+
     embed.add_field(name="💸 Economy & StarDust", value="""
 `/balance` - See your StarDust balance ✨  
 `/daily` - Claim your daily reward 🎁  
@@ -163,13 +161,13 @@ async def help(interaction: discord.Interaction):
 `/buy` - Purchase an item from the shop 🪙  
 """, inline=False)
 
-    # 🪐 Exploration Commands
+ 
     embed.add_field(name="🚀 Explore & Discover", value="""
 `/explore` - Venture through space and find goodies 🌌  
 `/deep_space` - Go on a risky, far-out mission, high reward, high risk! 💀✨  
 """, inline=False)
 
-    # 🐾 Pet & Profile System
+
     embed.add_field(name="🪄 Pets, Titles & Profiles", value="""
 `/inventory` - View all your collected items 🎒  
 `/equip_pet` - Equip a pet to show off 🐾  
@@ -189,7 +187,7 @@ async def help(interaction: discord.Interaction):
 
 
 
-# ₊˚ ‿︵‿︵‿︵୨୧ · · ♡ · · ୨୧‿︵‿︵‿︵ ˚₊
+
 
 
 
@@ -199,7 +197,6 @@ async def hello(interaction: discord.Interaction):
 
 
 
-# ₊˚ ‿︵‿︵‿︵୨୧ · · ♡ · · ୨୧‿︵‿︵‿︵ ˚₊
 
 
 
@@ -214,10 +211,10 @@ async def rps(interaction: discord.Interaction, user_choice: str):
         await interaction.response.send_message("Invalid choice! Please choose 'rock', 'paper', or 'scissors'.")
         return
 
-    bot_choice = random.choice(options)  # Bot chooses randomly
+    bot_choice = random.choice(options)  
     await interaction.response.send_message(f'You chose {user_choice} and I chose {bot_choice}.')
 
-    # Game logic
+   
     if user_choice == bot_choice:
         await interaction.followup.send("It's a draw! 🤝")
     elif (user_choice == 'rock' and bot_choice == 'scissors') or \
@@ -227,8 +224,6 @@ async def rps(interaction: discord.Interaction, user_choice: str):
     else:
         await interaction.followup.send("You lose! 😭")
 
-
-# ₊˚ ‿︵‿︵‿︵୨୧ · · ♡ · · ୨୧‿︵‿︵‿︵ ˚₊
 
 
 
@@ -268,7 +263,7 @@ async def flames(interaction: discord.Interaction, your_name: str, their_name: s
 
       
 
-# ₊˚ ‿︵‿︵‿︵୨୧ · · ♡ · · ୨୧‿︵‿︵‿︵ ˚₊
+
 
 @tree.command(name="lovecalc", description="Test your compatibility by entering your and your crush's name! 💞")
 @app_commands.describe(
@@ -311,7 +306,7 @@ async def love_calc(interaction: discord.Interaction, your_name: str, their_name
 
     result = reduce_list(lst)
 
-    # Construct a proper two-digit percentage
+ 
     if len(result) == 1:
         percentage = result[0] % 100
     else:
@@ -322,8 +317,6 @@ async def love_calc(interaction: discord.Interaction, your_name: str, their_name
     )
 
 
-
-# ₊˚ ‿︵‿︵‿︵୨୧ · · ♡ · · ୨୧‿︵‿︵‿︵ ˚₊
 
 
 @tree.command(name="dice_roll", description="Roll a dice interactively!")
@@ -350,7 +343,7 @@ async def dice_roll(interaction: discord.Interaction, cmd: str):
             break
 
 
-# ₊˚ ‿︵‿︵‿︵୨୧ · · ♡ · · ୨୧‿︵‿︵‿︵ ˚₊
+
 
 
 @tree.command(name="math", description="Answer a random math question! 🧮")
@@ -390,8 +383,6 @@ async def math(interaction: discord.Interaction, max_range: int):
 
 
 
-# ₊˚ ‿︵‿︵‿︵୨୧ · · ♡ · · ୨୧‿︵‿︵‿︵ ˚₊
-
 
 
 @tree.command(name="makepoll", description="Make a yes/no poll!")
@@ -412,7 +403,7 @@ async def makepoll(interaction: discord.Interaction, question: str):
     await poll_message.add_reaction("👎")
 
     
-# ₊˚ ‿︵‿︵‿︵୨୧ · · ♡ · · ୨୧‿︵‿︵‿︵ ˚₊
+
 
 
 @tree.command(name="numberguess", description="Play a number guessing game!")
@@ -455,8 +446,6 @@ async def numberguess(interaction: discord.Interaction, min_ran: int, max_ran: i
             await interaction.followup.send("⏰ You took too long! Game over.", ephemeral=True)
             break
 
-# ₊˚ ‿︵‿︵‿︵୨୧ · · ♡ · · ୨୧‿︵‿︵‿︵ ˚₊
-
 
 
 @tree.command(name="codegame", description="Play a game where you guess the secret code!")
@@ -484,8 +473,7 @@ async def codegame(interaction: discord.Interaction):
     await interaction.response.send_message(f"🎯 Game started! Some of the letters from these hints are in the code:\n`{hint_str}`\nThe code has **{len(code)}** letters. Letters can repeat.\n\nType your guess like this: `R G B Y` (separated by spaces). I’ll wait for your messages!")
 
 
-# ₊˚ ‿︵‿︵‿︵୨୧ · · ♡ · · ୨୧‿︵‿︵‿︵ ˚₊
-     
+
 
 
 @tree.command(name="movierecc", description="Get movie recommendations based on your mood!")
@@ -548,7 +536,6 @@ Enjoy watching!🍿💗""")
     else:
         await interaction.followup.send("Please enter a valid category and try again!!🌟")
 
-# ₊˚ ‿︵‿︵‿︵୨୧ · · ♡ · · ୨୧‿︵‿︵‿︵ ˚₊
      
 
 
@@ -579,7 +566,7 @@ async def balance(interaction: discord.Interaction):
 
 @bot.tree.command(name="beg", description="Beg for some StarDust.")
 async def beg(interaction: discord.Interaction):
-    await interaction.response.defer(ephemeral=True)  # private beg moment lol
+    await interaction.response.defer(ephemeral=True)  
 
     user_id = interaction.user.id
     now = datetime.now()
