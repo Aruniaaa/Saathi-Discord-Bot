@@ -108,7 +108,7 @@ class Buy(commands.Cog):
     async def buy(self, interaction: discord.Interaction, category: str, item: str):
         user_id = interaction.user.id
 
-        # Try to find the matching category (case insensitive)
+       
         matched_category = next((cat for cat in self.shop_data if cat.lower() == category.lower()), None)
         if not matched_category:
             return await interaction.response.send_message(
@@ -120,7 +120,7 @@ class Buy(commands.Cog):
                 ephemeral=True
             )
 
-        # Now try to find the item within that category (case insensitive)
+        
         matched_item = next((i for i in self.shop_data[matched_category] if i.lower() == item.lower()), None)
         if not matched_item:
             return await interaction.response.send_message(
@@ -147,8 +147,7 @@ class Buy(commands.Cog):
 
         await economy.remove_balance(user_id, price)
 
-        # Optionally: Give the item here using your add functions!
-        # await economy.add_item(user_id, matched_item) — if applicable
+
 
         await interaction.response.send_message(
             embed=discord.Embed(
@@ -200,7 +199,7 @@ class Inventory(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @app_commands.command(name="inventory", description="Check out your galactic inventory 🪐")
+    @app_commands.command(name="inventory", description="Check out your inventory 🪐")
     async def inventory(self, interaction: discord.Interaction):
         user = interaction.user
         user_id = user.id
@@ -213,7 +212,7 @@ class Inventory(commands.Cog):
         name_tags = await get_user_items(user_id, "user_items", "item_name")
         titles = await get_user_items(user_id, "user_titles", "title")
 
-        # organize data prettily
+       
         def format_list(items, emoji="•"):
             if not items:
                 return "None"
@@ -259,20 +258,20 @@ class Profile(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @app_commands.command(name="profile", description="View your galactic profile card 🌌")
+    @app_commands.command(name="profile", description="View your profile card 🌌")
     async def profile(self, interaction: discord.Interaction):
         user = interaction.user
         user_id = user.id
         await interaction.response.defer()
 
-        # Get user data
+   
         balance = await economy.get_balance(user_id)
         equipped_pet = await get_equipped(user_id, "user_pets", "pet_name", "rarity")
         equipped_title = await get_equipped(user_id, "user_titles", "title")
         rarest_item = await get_rarest_item(user_id)
 
         embed = discord.Embed(
-            title=f"🌠 {user.display_name}'s Galactic Profile 🌠",
+            title=f"🌠 {user.display_name}'s Profile 🌠",
             color=0x9C8DF2
         )
 
