@@ -1,6 +1,6 @@
-# 🌌 Saathi - Your All-in-One Space-Themed Discord Bot 🚀
+#  Saathi - Your All-in-One Space-Themed Discord Bot 
 
-Saathi is an aesthetic, feature-rich, space-themed multipurpose Discord bot designed for fun, moderation, games, and a galactic in-server economy. It has unique interactivity, collectible pets, Stardust currency, and stylish profile cards, and an auto detection system that removes and warns the user for upto 320 abuse/profanity/cuss words! ✨
+Saathi is an aesthetic, space-themed multipurpose Discord bot designed for fun, moderation, games, and an in-server economy. It has unique commands, collectible pets, Stardust currency, and an auto detection system that removes and warns the user for upto 320 abuse/profanity/cuss words! 
 
 ---
 
@@ -16,10 +16,10 @@ Saathi is an aesthetic, feature-rich, space-themed multipurpose Discord bot desi
 ### ❤️ Fun & Games
 
 * `/rps` – Play Rock, Paper, Scissors
-* `/flames` – Check your FLAMES compatibility 🔥
-* `/lovecalc` – Find your love score 💖
+* `/flames` – Check your FLAMES compatibility 
+* `/lovecalc` – Find your love score 
 * `/numberguess` – Guess a number between 1-10
-* `/codegame` – Try to guess the secret code 🧠
+* `/codegame` – Try to guess the secret code 
 
 ### 🎬 Entertainment
 
@@ -40,9 +40,9 @@ Saathi is an aesthetic, feature-rich, space-themed multipurpose Discord bot desi
 
 ### 🪐 Customization
 
-* `/equip_pet` – Equip your favorite pet 👽
-* `/equip_title` – Equip a title to showcase in your profile 🏷️
-* `/profile` – View your aesthetic space-themed profile card ⭐
+* `/equip_pet` – Equip your favorite pet 
+* `/equip_title` – Equip a title to showcase in your profile 🏷
+* `/profile` – View your aesthetic space-themed profile card 
 
 ---
 
@@ -117,7 +117,7 @@ python bot.py
 
 ## 🌟 Contributions
 
-PRs are welcome! If you want to contribute commands, themes, or features, feel free to fork, go creative, go wild!<3 🛸
+PRs are welcome! If you want to contribute commands, themes, or features, feel free to fork, go creative, go wild!<3 
 
 ---
 
