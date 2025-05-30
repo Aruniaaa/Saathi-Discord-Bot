@@ -2,8 +2,7 @@ import random
 import discord
 from discord import app_commands
 from discord.ext import commands
-import economy  # Your existing economy system
-
+import economy  
 class Explore(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -77,7 +76,7 @@ class Explore(commands.Cog):
 
         await interaction.response.send_message(
             f"🚀 {interaction.user.mention} ventured FAR into the galaxy!\n"
-            f"You found:\n{pet_list}\nAnd earned **{stardust} Stardust ✨**! Cosmic jackpot!"
+            f"You found:\n{pet_list}\nAnd earned **{stardust} Stardust ✨**!"
         )
 
 async def setup(bot):
